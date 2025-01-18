@@ -9,9 +9,6 @@ def  main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
-    
-
-
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
@@ -27,8 +24,6 @@ def  main():
         dt = clock.tick(60) / 1000
         fps = clock.get_fps()
         
-
-
 
 if __name__ == "__main__":
     main()
