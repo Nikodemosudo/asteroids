@@ -30,6 +30,9 @@ def  main():
                 return     
         for sprite in updatable:
             sprite.update(dt)
+        for asteroid in asteroids:
+            if player.collision(asteroid):
+                raise Exception("Game Over!")
         screen.fill((0,0,0))
         for sprite in drawable:
             sprite.draw(screen)   
