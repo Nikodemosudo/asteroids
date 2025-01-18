@@ -9,6 +9,9 @@ def  main():
     clock = pygame.time.Clock()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    bg_image = pygame.image.load('stars.jpg')
+    bg_image = pygame.transform.scale(bg_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
@@ -28,9 +31,9 @@ def  main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return     
+        
         for sprite in updatable:
             sprite.update(dt)
-
         for asteroid in asteroids:
             if player.collision(asteroid):
                 raise Exception("Game Over!")
@@ -41,6 +44,7 @@ def  main():
                     shot.kill()
             
         screen.fill((0,0,0))
+        screen.blit(bg_image, (0, 0))
 
         for sprite in drawable:
             sprite.draw(screen)   
